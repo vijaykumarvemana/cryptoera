@@ -1,9 +1,14 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import { useGetCoinsQuery } from './services/cryptoApi'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  const { data, isFetching} = useGetCoinsQuery(10)
+
+  console.log(data)
 
   return (
     <div className="App">
