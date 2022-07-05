@@ -1,2 +1,2 @@
 # cryptoera
-About Crypto Coins, Trending and Crypto News
+About Crypto Coins, Trends and Crypto News
