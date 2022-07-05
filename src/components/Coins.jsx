@@ -10,32 +10,45 @@ const Coins = ({ coins }) => {
 
   console.log(data?.data?.coins);
    return (
-    <div class="container mx-auto">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
        <h2 className= "text-center text-3xl md:text-4xl font-extrabold  text-blue-600 my-3" >Top Crypto Currencies</h2>
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-4 grid-cols-md-2 gap-4">
 
         {data?.data?.coins?.map((coin) => (
-            <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700" key={coin.uuid}>
+            <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 p-5" key={coin.uuid}>
             
-            <div className="p-5 ">
-                <div className="flex justify-center">
-                    <h5 className=" text-2xl font-bold tracking-tight text-gray-900 dark:text-white pr-2">{coin.name}</h5>
-                    <img className="w-6 h-6 " src={coin.iconUrl} alt="" />
-                </div>
-                <div className="flex justify-between">
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Rank: {coin.rank}</p>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Market Cap: {millify(coin.marketCap)}</p>
-                </div>
-                <div className="flex justify-between">
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Rank: {coin.rank}</p>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Market Cap: {millify(coin.marketCap)}</p>
-                </div>
-                <a href="#" className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Read more
-                    <svg className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                </a>
+            
+            <div class="text-center mt-4">
+              <p class="text-gray-600 font-bold">{coin.name}
+              </p>
+              <p class="text-sm font-hairline text-gray-600 mt-1">({coin.symbol})
+              </p>
             </div>
-        </div>
+            <div class="flex justify-center mt-4">
+              <img class="shadow sm:w-12 sm:h-12 w-10 h-10 rounded-full bg-gray-100" src={coin.iconUrl} alt="Avatar" />
+            </div>
+            <div class="mt-6 flex justify-between text-center">
+              <div>
+                <p class="text-gray-700 font-bold">{coin.rank}
+                </p>
+                <p class="text-xs mt-2 text-gray-600 font-hairline">Rank
+                </p>
+              </div>
+              <div>
+                <p class="text-gray-700 font-bold">{millify(coin.marketCap, { precision: 1 })}
+                </p>
+                <p class="text-xs mt-2 text-gray-600 font-hairline">Market Cap
+                </p>
+              </div>
+              <div>
+                <p class="text-gray-700 font-bold">{millify(coin.price,  { precision: 3})}$
+                </p>
+                <p class="text-xs mt-2 text-gray-700 font-hairline">price
+                </p>
+              </div>
+            </div>
+          </div>
+       
         ))}
             
   
