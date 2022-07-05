@@ -1,26 +1,22 @@
 import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom'
 import './index.css'
-import logo from './logo.svg'
 import './App.css'
-
-import Stats from './components/Stats'
+import CoinDetails from './components/CoinDetails'
+import Home from './components/Home'
 import Navbar from './components/NavBar'
-import Coins from './components/Coins'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  
-  console.log(import.meta.env.NODE_ENV)
-
   return (
-      <>
-      <Navbar />
-      <Stats  />
-      <Coins />
-      </>
-     
-    
+    <>
+    <Navbar />
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/coins/:coinId" element={<CoinDetails />} />
+      </Routes>
+    </Router>
+    </>
   )
 }
 

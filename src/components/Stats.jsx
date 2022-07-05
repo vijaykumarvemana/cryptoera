@@ -4,7 +4,11 @@ import millify from "millify";
 const Stats = () => {
   const { data, isFetching } = useGetCoinsQuery(10);
   if (isFetching) {
-    return <div>Loading...</div>;
+    return <div className="flex items-center justify-center">
+    <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
+     
+    </div>
+  </div>
   }
 console.log(data?.data);
   const stats = data?.data?.stats;
@@ -12,10 +16,10 @@ console.log(data?.data);
     <>
       <section className="bg-white dark:bg-gray-900">
      
-      <div className="px-4 py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10">
+      <div className="px-4 py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10 ">
       <h2 className= "text-center text-3xl md:text-4xl font-extrabold  text-blue-600 my-3" >Global Cryptocurrencies Stats</h2>
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="text-center">
+        <div className="text-center ">
           <div className="flex items-center justify-center w-10 h-10 mx-auto mb-3 rounded-full bg-teal-accent-400 sm:w-12 sm:h-12">
             <svg
               className="w-8 h-8 text-teal-900 sm:w-10 sm:h-10"
