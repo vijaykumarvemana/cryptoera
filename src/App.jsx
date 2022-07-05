@@ -1,49 +1,26 @@
 import { useState } from 'react'
+import './index.css'
 import logo from './logo.svg'
 import './App.css'
-import { useGetCoinsQuery } from './services/cryptoApi'
+
+import Stats from './components/Stats'
+import Navbar from './components/NavBar'
+import Coins from './components/Coins'
 
 function App() {
   const [count, setCount] = useState(0)
 
-  const { data, isFetching} = useGetCoinsQuery(10)
-
-  console.log(data)
+  
+  console.log(import.meta.env.NODE_ENV)
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+      <>
+      <Navbar />
+      <Stats  />
+      <Coins />
+      </>
+     
+    
   )
 }
 
